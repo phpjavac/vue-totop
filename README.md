@@ -29,3 +29,4 @@
 | size| 按钮大小|number| 大于0的整数  |24 |
 | color| 按钮颜色|string| rgb/hex  |'#666' |
 | duration| 返回顶部的间隔时间 |number| 大于0的整数   |300 |
+| domid| 在某个元素内部滚动的id |string| 要监听滚动事件的元素id   |空 |

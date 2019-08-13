@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  props: ['type','top','right','bottom','size','color','duration'],
+  props: ['type','top','right','bottom','size','color','duration','domid'],
   data () {
     return {
       showIcon: false,
@@ -31,11 +31,12 @@ export default {
     this.size ? this.defaultSize = this.size: '';
     this.color ? this.defaultColor = this.color: '';
     this.duration ? this.defaultDuration = this.duration: '';
-    window.addEventListener('scroll', this.handelScroll, false)
+    this.domid?document.getElementById(this.domid).addEventListener('scroll', this.handelScroll, false):window.addEventListener('scroll', this.handelScroll, false)
+    
   },
   methods: {
     handelScroll () {
-      this.scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+      this.scrollTop = document.getElementById(this.domid).scrollTop || document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
       this.scrollTop > this.defaultTop ? this.showIcon = true : this.showIcon = false
     },
     goTop () {
@@ -52,7 +53,7 @@ export default {
       function fn(){
         if(self.scrollTop >= 0){
           self.scrollTop -= step;
-          document.documentElement.scrollTop = document.body.scrollTop = self.scrollTop;
+          document.getElementById(self.domid).scrollTop = document.documentElement.scrollTop = document.body.scrollTop = self.scrollTop;
           fn.rafTimer = requestAnimationFrame(fn);
         }else{
           document.body.scrollTop = 0;
@@ -116,3 +117,4 @@ export default {
   .icon-v-totop-0:before { content: "\e658"; }
 
 </style>
+
