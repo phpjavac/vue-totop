@@ -1,14 +1,14 @@
 {
-  "name": "to-top-vue",
+  "name": "vue-totop",
   "description": "vue 返回顶部插件",
-  "version": "1.0.4",
-  "author": "",
+  "version": "1.0.3",
+  "author": "王永存 <1006008051@qq.com>",
   "license": "MIT",
   "private": false,
   "main": "dist/vue-totop.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phpjavac/vue-totop"
+    "url": "https://github.com/1006008051/vue-totop"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",

@@ -1,7 +1,7 @@
 {
-  "name": "to-top-vue",
+  "name": "vue-totop",
   "description": "vue 返回顶部插件",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "author": "",
   "license": "MIT",
   "private": false,
