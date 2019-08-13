@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  props: ['type','top','right','bottom','size','color','duration','domid'],
+  props: ['type','top','right','bottom','size','color','duration','dom'],
   data () {
     return {
       showIcon: false,
@@ -31,12 +31,12 @@ export default {
     this.size ? this.defaultSize = this.size: '';
     this.color ? this.defaultColor = this.color: '';
     this.duration ? this.defaultDuration = this.duration: '';
-    this.domid?document.getElementById(this.domid).addEventListener('scroll', this.handelScroll, false):window.addEventListener('scroll', this.handelScroll, false)
+    this.dom?document.getElementById(this.dom).addEventListener('scroll', this.handelScroll, false):window.addEventListener('scroll', this.handelScroll, false)
     
   },
   methods: {
     handelScroll () {
-      this.scrollTop = document.getElementById(this.domid).scrollTop || document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+      this.scrollTop = document.getElementById(this.dom).scrollTop || document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
       this.scrollTop > this.defaultTop ? this.showIcon = true : this.showIcon = false
     },
     goTop () {
@@ -53,7 +53,7 @@ export default {
       function fn(){
         if(self.scrollTop >= 0){
           self.scrollTop -= step;
-          document.getElementById(self.domid).scrollTop = document.documentElement.scrollTop = document.body.scrollTop = self.scrollTop;
+          document.getElementById(self.dom).scrollTop = document.documentElement.scrollTop = document.body.scrollTop = self.scrollTop;
           fn.rafTimer = requestAnimationFrame(fn);
         }else{
           document.body.scrollTop = 0;
